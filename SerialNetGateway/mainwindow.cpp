@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->serialClearButton, &QPushButton::clicked, this, &MainWindow::OnClickClearSerialData);
+    connect(ui->netClearButton, &QPushButton::clicked, this, &MainWindow::OnClickClearTcpData);
 
     mp_serialAgent = new SerialAgent(this);
     mp_tcpAgent = new TcpAgent(this);
@@ -30,4 +32,14 @@ void MainWindow::OnTcpDataReady(QByteArray &data)
 {
     ui->netDataEdit->moveCursor(QTextCursor::End);
     ui->netDataEdit->insertPlainText(QString(data));
+}
+
+void MainWindow::OnClickClearSerialData()
+{
+    ui->serialDataEdit->clear();
+}
+
+void MainWindow::OnClickClearTcpData()
+{
+    ui->netDataEdit->clear();
 }

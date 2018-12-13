@@ -24,6 +24,8 @@ private:
 private slots:
     void OnSerialDataReady(QByteArray &data);
     void OnTcpDataReady(QByteArray &data);
+    void OnClickClearSerialData();
+    void OnClickClearTcpData();
 };
 
 #endif // MAINWINDOW_H
