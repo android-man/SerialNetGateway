@@ -24,6 +24,10 @@ private:
 private slots:
     void OnSerialDataReady(QByteArray &data);
     void OnTcpDataReady(QByteArray &data);
+    void OnSerialAgentReady();
+    void OnSerialAgentDown();
+    void OnTcpAgentReady();
+    void OnTcpAgentDown();
     void OnClickClearSerialData();
     void OnClickClearTcpData();
 };
